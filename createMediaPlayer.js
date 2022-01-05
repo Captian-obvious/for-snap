@@ -192,5 +192,5 @@ window.m = {
                 button.className = "MediaPlayerIcon icon-pause";
             });
         };
-    }),
+    },
 }
