@@ -16,9 +16,12 @@ function calcRMSColor(rms) {
     return ret;
 }
 window.createMediaPlayer = function (element) {
-    var file = document.getElementById("thefile");
-    var filetitle = document.getElementById("file-label");
     element.innerHTML = `
+    <label for="thefile" id="file-label">
+            Choose Audio File
+            <div id="file-zone" style="width:100%; height:100%;" hidden>Drag files here</div>
+        </label>
+        <input type="file" accept="audio/*" id="thefile"></input>
     <canvas id="canvas"></canvas>
     <div id="main">
         <div id="album">       
@@ -33,6 +36,8 @@ window.createMediaPlayer = function (element) {
         </div>
      </div>
      `
+    var file = document.getElementById("thefile");
+    var filetitle = document.getElementById("file-label");
     replaceurl("player=" + urlParameter);
     var audio = new Audio();
     console.log(audio);
