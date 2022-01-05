@@ -15,12 +15,24 @@ function calcRMSColor(rms) {
     let ret = intermed * 150;
     return ret;
 }
-window.addEventListener("load", function () {
+window.createMediaPlayer = function (element) {
     var file = document.getElementById("thefile");
     var filetitle = document.getElementById("file-label");
-    document.getElementById(
-        "media-container"
-    ).innerHTML = `<canvas id="canvas"></canvas>\n<div id="main">\n    <div id="album">\n        <div id="MediaPlayerControls">\n            <div id="MediaPlayerIcon-icon-play" class="MediaPlayerIcon icon-play" data-mediathumb-url="src"></div>\n            <div id="sound_options" class="MediaPlayerIcon icon-volume">\n                <input id="volume" class="MediaPlayerControl-volume" type="range" max="100" min="0" />\n            </div>\n        </div>\n        <input id="MediaPlayerControl-seekbar" type="range" name="rng" min="0" value="0">\n       <div id="time-position"></div>\n    </div>\n</div>\n`;
+    element.innerHTML = `
+    <canvas id="canvas"></canvas>
+    <div id="main">
+        <div id="album">       
+            <div id="MediaPlayerControls">
+                <div id="MediaPlayerIcon-icon-play" class="MediaPlayerIcon icon-play" data-mediathumb-url="src"></div>
+                <div id="sound_options" class="MediaPlayerIcon icon-volume">
+                <input id="volume" class="MediaPlayerControl-volume" type="range" max="100" min="0" />
+                </div>
+            </div>
+            <input id="MediaPlayerControl-seekbar" type="range" name="rng" min="0" value="0">
+            <div id="time-position"></div> 
+        </div>
+     </div>
+     `
     replaceurl("player=" + urlParameter);
     var audio = new Audio();
     console.log(audio);
